@@ -1,6 +1,8 @@
 package com.motorgrafos;
 
 import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
     private Map<Integer, List<GraphEdge>> adjacencyList;
@@ -198,6 +200,84 @@ public class Graph {
             }
         }
         return false;
+    }
+
+    /**
+     * Verifica si el grafo es conexo usando BFS (búsqueda en anchura)
+     * Un grafo es conexo si desde cualquier vértice se pueden alcanzar todos los demás
+     *
+     * @return true si el grafo es conexo, false si no
+     */
+    public boolean isConnected() {
+        // Un grafo vacío o con un solo vértice es conexo
+        if (vertices.size() <= 1) {
+            return true;
+        }
+
+        // Conjunto para guardar los vértices ya visitados
+        Set<Integer> visited = new HashSet<>();
+
+        // Cola para el BFS (búsqueda en anchura)
+        Queue<Integer> queue = new LinkedList<>();
+
+        // Empezamos desde el primer vértice
+        int startVertex = vertices.iterator().next();
+        queue.add(startVertex);
+        visited.add(startVertex);
+
+        // BFS: mientras haya vértices en la cola
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+
+            // Recorremos todos los vecinos del vértice actual
+            List<GraphEdge> edges = adjacencyList.getOrDefault(current, new ArrayList<>());
+            for (GraphEdge edge : edges) {
+                if (!visited.contains(edge.destination)) {
+                    visited.add(edge.destination);
+                    queue.add(edge.destination);
+                }
+            }
+        }
+
+        // Si visitamos todos los vértices, el grafo es conexo
+        return visited.size() == vertices.size();
+    }
+
+    /**
+     * Encuentra todos los componentes conexos del grafo
+     *
+     * @return Lista de conjuntos, donde cada conjunto es un componente conexo
+     */
+    public List<Set<Integer>> findConnectedComponents() {
+        List<Set<Integer>> components = new ArrayList<>();
+        Set<Integer> visited = new HashSet<>();
+
+        for (int vertex : vertices) {
+            if (!visited.contains(vertex)) {
+                // Nuevo componente encontrado
+                Set<Integer> component = new HashSet<>();
+                Queue<Integer> queue = new LinkedList<>();
+
+                queue.add(vertex);
+                component.add(vertex);
+
+                while (!queue.isEmpty()) {
+                    int current = queue.poll();
+                    List<GraphEdge> edges = adjacencyList.getOrDefault(current, new ArrayList<>());
+                    for (GraphEdge edge : edges) {
+                        if (!component.contains(edge.destination)) {
+                            component.add(edge.destination);
+                            queue.add(edge.destination);
+                        }
+                    }
+                }
+
+                components.add(component);
+                visited.addAll(component);
+            }
+        }
+
+        return components;
     }
 
     /**
