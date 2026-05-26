@@ -16,7 +16,8 @@ El programa te pedirá que escribas la ruta del archivo manualmente. Ejemplo:
 ### Formato del Archivo de Entrada
 
 El archivo debe ser un archivo de texto con extensión **.txt** y el siguiente formato:
-**origen,destino,peso**
+```txt
+origen,destino,peso
 0,1,5
 0,2,3
 1,2,2
@@ -24,6 +25,7 @@ El archivo debe ser un archivo de texto con extensión **.txt** y el siguiente f
 2,3,1
 2,0,4
 3,0,6
+```
 
 ### Especificaciones:
 - Separador: Coma (,)
