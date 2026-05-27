@@ -12,16 +12,17 @@ public class Graph {
      * Clase interna que representa una arista desde un vértice hacia otro
      * Solo guarda destino y peso (el origen se sabe por el mapa que la contiene)
      */
-    public static class GraphEdge {
+        public static class GraphEdge {
         public int destination; // Vértice de destino
         public int weight; // Peso de la arista
 
+        // Método constructor para inicializar los campos de la arista.
         public GraphEdge(int destination, int weight) {
             this.destination = destination;
             this.weight = weight;
         }
 
-        @Override
+        @Override // Indica que este método sobrescribe el método toString de la clase Object.
         public String toString() {
             return " -> " + destination + " (peso:" + weight + ")";
         }

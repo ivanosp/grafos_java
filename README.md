@@ -6,12 +6,15 @@ Este proyecto es un motor de procesamiento de grafos desarrollado para la asigna
 
 ### Importante: Ruta del archivo
 
-El programa te pedirá que escribas la ruta del archivo manualmente. Ejemplo:
+El programa te pedirá que escribas la ruta del archivo manualmente o que selecciones el
+archivo. Ejemplo:
 **Opciones válidas:**
 - `datos/grafo.txt` (si el archivo está en la carpeta `datos`)
 - `C:/ruta/completa/grafo.txt` (ruta absoluta en Windows)
 - `/home/usuario/grafo.txt` (ruta absoluta en Linux/Mac)
 - `grafo.txt` (si el archivo está en la misma carpeta que el programa)
+
+Si presiobala tecla "Enter" en su defecto presionando la tecla enter se abre el selector de archivos permitiendo al usuario navegar por el directorio como comunmente se hace en otras plicaciones para seleccionar el archivo deseado.
 
 ### Formato del Archivo de Entrada
 

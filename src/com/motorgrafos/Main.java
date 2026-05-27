@@ -1,4 +1,5 @@
 package com.motorgrafos;
+
 public class Main {
     /**
      * Clase principal, inicializa el programa.
