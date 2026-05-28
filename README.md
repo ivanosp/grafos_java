@@ -14,7 +14,7 @@ archivo. Ejemplo:
 - `/home/usuario/grafo.txt` (ruta absoluta en Linux/Mac)
 - `grafo.txt` (si el archivo está en la misma carpeta que el programa)
 
-Si presiobala tecla "Enter" en su defecto presionando la tecla enter se abre el selector de archivos permitiendo al usuario navegar por el directorio como comunmente se hace en otras plicaciones para seleccionar el archivo deseado.
+Si presiona la tecla "Enter" en su defecto presionando la tecla enter se abre el selector de archivos permitiendo al usuario navegar por el directorio como comunmente se hace en otras plicaciones para seleccionar el archivo deseado.
 
 ### Formato del Archivo de Entrada
 
